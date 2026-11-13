@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
+<meta name="theme-color" content="#f4efe3">
+<title>桜日和 · 樱花水岸小屋</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f4efe3'/%3E%3Cg fill='%23e8b9c2'%3E%3Cellipse cx='32' cy='18' rx='8' ry='13'/%3E%3Cellipse cx='45' cy='28' rx='13' ry='8' transform='rotate(35 45 28)'/%3E%3Cellipse cx='39' cy='44' rx='8' ry='13' transform='rotate(70 39 44)'/%3E%3Cellipse cx='25' cy='44' rx='8' ry='13' transform='rotate(-70 25 44)'/%3E%3Cellipse cx='19' cy='28' rx='13' ry='8' transform='rotate(-35 19 28)'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='5' fill='%23b87878'/%3E%3C/svg%3E">
+<meta name="description" content="一座可随时间流转的樱花水岸茶庭微缩模型。">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div id="app" aria-label="桜日和三维樱花水岸小屋">
+  <div class="page-wash" aria-hidden="true"></div>
+  <div class="page-grain" aria-hidden="true"></div>
+  <div class="page-vignette" aria-hidden="true"></div>
+
+  <div id="stage" class="stage" aria-hidden="true"></div>
+
+  <header class="brand" data-chrome>
+    <div class="brand-mark">桜日和<span class="brand-seal" aria-hidden="true">桜</span></div>
+    <div class="brand-sub">SAKURA&nbsp;&nbsp;BIYORI</div>
+    <div class="brand-rule"></div>
+    <div class="brand-caption">水岸茶庭 · 微缩模型</div>
+  </header>
+
+  <div class="top-actions" data-chrome>
+    <button id="pureBtn" class="pure-btn" type="button" aria-pressed="false" title="进入纯享模式">
+      <span class="pure-icon" aria-hidden="true"></span>
+      <span>纯享模式</span>
+    </button>
+  </div>
+
+  <aside class="poem" data-chrome aria-label="题句">
+    <div class="poem-rule" aria-hidden="true"></div>
+    <p>花落庭前，<br>留一盏茶的时间</p>
+    <span class="poem-en">A TEA, A FALLEN PETAL</span>
+  </aside>
+
+  <div class="hint" id="hint" data-chrome>
+    <span class="hint-dot" aria-hidden="true"></span>
+    <span class="hint-desktop">拖动旋转 · 滚轮缩放 · 点击障子与水面</span>
+    <span class="hint-mobile">单指旋转 · 双指缩放 · 轻点障子与水面</span>
+  </div>
+
+  <section class="timebar" id="timebar" data-chrome aria-label="时间控制">
+    <div class="time-readout">
+      <span id="timeNow">07:00</span>
+      <span class="time-phase" id="timePhase">清晨</span>
+    </div>
+    <div class="time-presets" role="group" aria-label="预设时刻">
+      <button type="button" class="time-btn is-active" data-hour="7" aria-pressed="true"><span>07:00</span><small>清晨</small></button>
+      <button type="button" class="time-btn" data-hour="18" aria-pressed="false"><span>18:00</span><small>黄昏</small></button>
+      <button type="button" class="time-btn" data-hour="22" aria-pressed="false"><span>22:00</span><small>夜晚</small></button>
+    </div>
+    <div class="time-slider-wrap">
+      <span class="slider-sun" aria-hidden="true"></span>
+      <input id="timeSlider" class="time-slider" type="range" min="6.5" max="23.5" step="0.05" value="7" aria-label="连续调节一天中的时间">
+      <div class="slider-scale" aria-hidden="true"><span>06:30</span><span>15:00</span><span>23:30</span></div>
+    </div>
+  </section>
+
+  <button id="exitPure" class="exit-pure" type="button" aria-label="退出纯享模式" title="退出纯享模式（Esc）">
+    <span aria-hidden="true">×</span>
+  </button>
+
+  <div id="loading" class="loading" role="status" aria-live="polite">
+    <div class="loading-flower" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <div class="loading-title">桜日和</div>
+    <div class="loading-sub">正在铺开庭院</div>
+  </div>
+
+  <div id="fatal" class="fatal" hidden>
+    <div class="fatal-card">
+      <div class="fatal-title">这方庭院暂时无法展开</div>
+      <p id="fatalMsg">请使用支持 WebGL 的现代浏览器打开。</p>
+      <button type="button" onclick="location.reload()">重试</button>
+    </div>
+  </div>
+</div>
+
+<script src="./vendor/three.min.js"></script>
+<script src="./js/config.js"></script>
+<script src="./js/core.js"></script>
+<script src="./js/helpers.js"></script>
+<script src="./js/textures.js"></script>
+<script src="./js/environment.js"></script>
+<script src="./js/house.js"></script>
+<script src="./js/tea.js"></script>
+<script src="./js/garden.js"></script>
+<script src="./js/water.js"></script>
+<script src="./js/atmosphere.js"></script>
+<script src="./js/ui.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
